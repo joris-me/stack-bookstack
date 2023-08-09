@@ -41,7 +41,7 @@ services:
       - OIDC_USER_TO_GROUPS=true
       - OIDC_GROUPS_CLAIM=groups
       - OIDC_REMOVE_FROM_GROUPS=true
-      - OIDC_DUMP_USER_DETAILS=true
+      - OIDC_DUMP_USER_DETAILS=false
     volumes:
       - bookstack_config:/config
     ports:
@@ -53,3 +53,4 @@ services:
 volumes:
   bookstack_db:
   bookstack_config:
+
