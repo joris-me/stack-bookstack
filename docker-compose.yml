@@ -4,7 +4,7 @@ version: "3.8"
 services:
 
   bookstack_db:
-    image: lscr.io/linuxserver/mariadb
+    image: lscr.io/linuxserver/mariadb:10.11.4
     container_name: bookstack_db
     environment:
       - PUID=1000
@@ -19,7 +19,7 @@ services:
     restart: unless-stopped
 
   bookstack:
-    image: lscr.io/linuxserver/bookstack
+    image: lscr.io/linuxserver/bookstack:23.06.2
     container_name: bookstack
     environment:
       - PUID=1000
@@ -53,4 +53,3 @@ services:
 volumes:
   bookstack_db:
   bookstack_config:
-
