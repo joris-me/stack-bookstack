@@ -15,7 +15,7 @@ services:
       - MYSQL_USER=${DB_USER:-bookstack}
       - MYSQL_PASSWORD=${DB_PASSWORD:-bookstack}
     volumes:
-      - ./bookstack_db_data:/config
+      - bookstack_db:/config
     restart: unless-stopped
 
   bookstack:
@@ -47,4 +47,5 @@ services:
       - bookstack_db
 
 volumes:
+  bookstack_db:
   bookstack_config:
