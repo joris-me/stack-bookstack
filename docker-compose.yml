@@ -30,7 +30,7 @@ services:
       - DB_USER=${DB_USER:-bookstack}
       - DB_PASS=${DB_PASSWORD:-bookstack}
       - DB_DATABASE=bookstack
-      - AUTH_METHOD=OIDC
+      - AUTH_METHOD=oidc
       - AUTH_AUTO_INITIATE=false
       - OIDC_NAME=${OIDC_NAME:?error}
       - OIDC_DISPLAY_NAME_CLAIMS=preferred_username
@@ -39,9 +39,12 @@ services:
       - OIDC_ISSUER=${OIDC_ISSUER:?error}
       - OIDC_ISSUER_DISCOVER=true
     volumes:
-      - ./bookstack_app_data:/config
+      - bookstack_config:/config
     ports:
       - "127.0.0.1:6875:80"
     restart: unless-stopped
     depends_on:
       - bookstack_db
+
+volumes:
+  bookstack_config:
