@@ -38,6 +38,7 @@ services:
       - OIDC_CLIENT_SECRET=${OIDC_CLIENT_SECRET:?error}
       - OIDC_ISSUER=${OIDC_ISSUER:?error}
       - OIDC_ISSUER_DISCOVER=true
+      - OIDC_DUMP_USER_DETAILS=true
     volumes:
       - bookstack_config:/config
     ports:
