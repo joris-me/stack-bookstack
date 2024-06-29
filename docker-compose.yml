@@ -4,7 +4,7 @@ version: "3.8"
 services:
 
   bookstack_db:
-    image: lscr.io/linuxserver/mariadb:10.11.4
+    image: lscr.io/linuxserver/mariadb:11
     container_name: bookstack_db
     environment:
       - PUID=1000
@@ -19,7 +19,7 @@ services:
     restart: unless-stopped
 
   bookstack:
-    image: lscr.io/linuxserver/bookstack:23.06.20230703
+    image: lscr.io/linuxserver/bookstack:24.05.1
     container_name: bookstack
     environment:
       - PUID=1000
@@ -42,6 +42,8 @@ services:
       - OIDC_GROUPS_CLAIM=groups
       - OIDC_REMOVE_FROM_GROUPS=true
       - OIDC_DUMP_USER_DETAILS=false
+      - APP_DEFAULT_DARK_MODE=true
+      - APP_VIEWS_BOOKS=list
     volumes:
       - bookstack_config:/config
     ports:
